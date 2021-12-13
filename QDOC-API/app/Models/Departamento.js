@@ -4,6 +4,8 @@
 const Model = use('Model')
 
 class Departamento extends Model {
+
+    static get table() { return 'departamentos' }
 }
 
 module.exports = Departamento

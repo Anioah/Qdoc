@@ -1,0 +1,32 @@
+<!-- component -->
+<div class="fondo">
+    <!-- url('/img/hero-pattern.svg') -->
+    <div class="flex min-h-screen bg-white">
+
+        <div class="w-1/2 mx-auto shadow-none fondo">
+
+            <div class="text-center mt-28 font-sans">
+                
+                <h1 class=" text-white text-3xl font-medium">Iniciar sesión</h1>
+                
+            </div>
+            <form action="#" >
+                <div class="flex items-center justify-center mt-5">
+                    <input type="text" class="block w-1/2 p-2 border rounded-md border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent " placeholder="Correo electrónico"  autofocus autocomplete required [(ngModel)]="elements.email" required [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="flex items-center justify-center mt-5">
+                    <input type="password" class="block w-1/2 p-2 border rounded-md border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent  " placeholder="Contraseña"  autofocus autocomplete required [(ngModel)]="elements.password" required [ngModelOptions]="{standalone: true}">
+                </div>
+
+                <div class="mt-10 flex items-center justify-center">
+                    <button class="btn-grad" (click)="login()">Entrar</button>
+                </div>
+            </form>
+        </div>
+
+        
+        <div class="w-full bg-cover md:block hidden" >
+            <img class="w-full" src="assets\login.png" alt="">
+        </div>
+    </div>
+</div>

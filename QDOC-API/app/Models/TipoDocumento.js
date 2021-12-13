@@ -4,6 +4,7 @@
 const Model = use('Model')
 
 class TipoDocumento extends Model {
+    static get table() { return 'tipo_documentos' }
 }
 
 module.exports = TipoDocumento
