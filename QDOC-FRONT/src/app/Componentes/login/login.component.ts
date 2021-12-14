@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
         (res: any) => {
           
           this.getUserInfo();
-          this.router.navigateByUrl('/departamento');
+          this.router.navigateByUrl('/historial');
           
         }
       , error =>{

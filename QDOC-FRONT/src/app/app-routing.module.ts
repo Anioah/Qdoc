@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { DepartamentosComponent } from './Componentes/departamentos/departamentos.component';
 import { FormulariosComponent } from './Componentes/formularios/formularios.component';
 import { HistorialComponent } from './Componentes/historial/historial.component';
+import { HomeComponent } from './Componentes/home/home.component';
 import { LoginComponent } from './Componentes/login/login.component';
+import { SidebarComponent } from './Componentes/sidebar/sidebar.component';
 import { UsuariosComponent } from './Componentes/usuarios/usuarios.component';
 
 export const appRoutingProviders: any[] = [];
@@ -26,8 +28,16 @@ const routes: Routes = [
   },
   {
     path: 'usuario',
-    component:UsuariosComponent
+    component: UsuariosComponent
   },
+  {
+    path: 'sidebar',
+    component: SidebarComponent
+  },
+  /*{
+    path: 'home',
+    component: HomeComponent
+  },*/
   {
     path: '**',
     redirectTo: '/login'

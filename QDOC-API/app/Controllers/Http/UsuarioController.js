@@ -53,6 +53,75 @@ class UsuarioController {
             .where('users.id', user.id)
         return response.status(200).json(datauser)
     }
+
+    async editarUsuario({ request, response }) {
+        try {
+
+            const update_usuario = request.all()
+            const usuario = await User.findBy('id', update_usuario.id)
+
+            usuario.username = update_usuario.username,
+                usuario.nombre = update_usuario.nombre,
+                usuario.email = update_usuario.email,
+                usuario.password = update_usuario.password,
+                usuario.apellidos = update_usuario.apellidos,
+                usuario.departamento = update_usuario.departamento
+
+
+            await usuario.save()
+            return response.status(201).send({ message: "El usuario ha sido actualizado", usuario })
+
+        } catch (error) {
+
+            return response.status(500).send({ message: "No se ha editado de manera correcta", error })
+        }
+    }
+
+    async eliminarUsuario({ request, response, params }) {
+        try {
+            const id = params.id
+            const usuario = await User.findOrFail(id)
+
+            usuario.delete()
+            return response.status(200).send({ message: "El usuario ha sido eliminado", usuario })
+
+
+        } catch (error) {
+            console.log(error)
+            return response.status(500).send({ message: "No se ha eliminado de manera correcta", error })
+
+        }
+    }
+
+    async allUser({ response }) {
+        try {
+            const data = await Database.select("users.*", "departamentos.nombre as depa").from("users")
+                .innerJoin("departamentos", "users.departamento", "departamentos.id")
+            return response.status(200).json(data)
+
+        } catch (error) {
+
+            return response.status(500).send({ message: "No se mostrará de manera correcta", error: error })
+        }
+    }
+
+    async deleteAuth({ response, auth, request }) {
+        try {
+            const data = await request.all();
+            // get user information
+            const user = await auth.getUser();
+            // find a token with the user id
+
+            const token = await Token.findBy('user_id', user.id);
+            await token.delete();
+
+            return response.status(200).json({ message: "Sesión finalizada correctamente" });
+
+        } catch (error) {
+
+            return response.status(500).json({ message: "No se realizo la petición exitosamente" });
+        }
+    }
 }
 
 module.exports = UsuarioController

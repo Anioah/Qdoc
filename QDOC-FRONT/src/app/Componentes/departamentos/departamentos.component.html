@@ -1,123 +1,135 @@
-<!-- component -->
-<div class="bg-white pb-4 px-4 rounded-md w-full">
-    <div class="flex justify-between w-full">
-      <p class="text-gray-600 mt-6 text-2xl font-bold flex items-start"> Departamentos</p>
+<div class="content" fxFlex>
+    <div class="row">
+        <div class="col-md-3 col-sm-12">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-md-9 col-sm-12">
+            <!-- component -->
+            <div class="bg-white pb-4 px-4 rounded-md w-full">
+                <div class="flex justify-between w-full">
+                    <p class="text-gray-600 mt-6 text-2xl font-bold flex items-start"> Departamentos</p>
 
-      <div class="w-full h-full flex flex-row">
-        <div class="w-1/2 bg-cover md:block hidden" >
-            <img class="w-full h-full" src="assets\edificio.svg" alt="">
-          </div>
-        
-        <section class=" flex h-screen w-1/2 p-10 justify-center items-center ">
-            <button onclick="document.getElementById('myModal').showModal()" id="btn" class="py-3 px-10 fondo text-white rounded-md font-bold text shadow-xl">Agregar departamento</button>
-          </section>
-          
-          <dialog id="myModal" class="h-96 w-11/12 md:w-1/2 bg-white rounded-md ">
-                  
-             <div class="flex flex-col w-full h-auto ">
-                  <!-- Header -->
-                  <div class="flex w-full h-auto justify-center items-center fondo rounded-md">
-                    <div class="flex w-10/12 h-auto py-3 justify-center items-center text-2xl font-bold text-white">
-                          Registrar departamento
-                    </div>
-                    <div onclick="document.getElementById('myModal').close();" class="flex w-1/12 h-auto justify-center cursor-pointer">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                    </div>
-                    <!--Header End-->
-                  </div>
-                    <!-- Modal Content-->
-                     <div class="flex w-full h-auto  px-2 flex-col text-center text-gray-500">
-                        <div class="flex items-center justify-center mt-4">
-                            <input type="text" class="block w-1/2 p-2 border rounded-md border-indigo-300 focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-transparent " placeholder="Nombre del departamento"  autofocus autocomplete required [(ngModel)]="elements.nombre" required [ngModelOptions]="{standalone: true}">
+                    <div class="w-full h-full flex flex-row">
+                        <div class="w-1/2 bg-cover md:block hidden">
+                            <img class="w-full h-full" src="assets\edificio.svg" alt="">
                         </div>
-                        <div class="flex items-center justify-center mt-4 ">
-                            <textarea  id="Observaciones" class="block w-1/2 p-2 border rounded-md border-indigo-300 focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-transparent " placeholder="Descripción del departamento " [(ngModel)]="elements.descripcion" [ngModelOptions]="{standalone: true}"></textarea>
+
+                        <section class=" flex h-screen w-1/2 p-10 justify-center items-center ">
+                            <button onclick="document.getElementById('myModal').showModal()" id="btn" class="py-3 px-10 fondo text-white rounded-md font-bold text shadow-xl">Agregar departamento</button>
+                        </section>
+
+                        <dialog id="myModal" class="h-96 w-11/12 md:w-1/2 bg-white rounded-md ">
+
+                            <div class="flex flex-col w-full h-auto ">
+                                <!-- Header -->
+                                <div class="flex w-full h-auto justify-center items-center fondo rounded-md">
+                                    <div class="flex w-10/12 h-auto py-3 justify-center items-center text-2xl font-bold text-white">
+                                        Registrar departamento
+                                    </div>
+                                    <div onclick="document.getElementById('myModal').close();" class="flex w-1/12 h-auto justify-center cursor-pointer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                    </div>
+                                    <!--Header End-->
+                                </div>
+                                <!-- Modal Content-->
+                                <div class="flex w-full h-auto  px-2 flex-col text-center text-gray-500">
+                                    <div class="flex items-center justify-center mt-4">
+                                        <input type="text" class="block w-1/2 p-2 border rounded-md border-indigo-300 focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-transparent " placeholder="Nombre del departamento" autofocus autocomplete required [(ngModel)]="elements.nombre"
+                                            required [ngModelOptions]="{standalone: true}">
+                                    </div>
+                                    <div class="flex items-center justify-center mt-4 ">
+                                        <textarea id="Observaciones" class="block w-1/2 p-2 border rounded-md border-indigo-300 focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-transparent " placeholder="Descripción del departamento " [(ngModel)]="elements.descripcion" [ngModelOptions]="{standalone: true}"></textarea>
+                                    </div>
+                                </div>
+                                <div class="mt-4 flex items-center justify-center">
+                                    <button class="btn-grad" (click)="registrarDepa()">Guardar </button>
+                                </div>
+                                <!-- End of Modal Content-->
+
+
+
+                            </div>
+                        </dialog>
+                    </div>
+                </div>
+                <div class=" flex flex-col justify-center rounded-2xl ">
+                    <!-- Table -->
+                    <div class="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-md border border-gray-200">
+                        <header class="px-5 py-1 bg-gray-100 border-b border-gray-100">
+                            <h2 class="font-semibold text-lg text-gray-800"><i class="fas fa-building"></i> Departamentos existentes</h2>
+                        </header>
+                        <div class="p-3">
+                            <div class="overflow-x-auto">
+                                <table class="table-auto w-full ">
+                                    <thead class="text-xs font-semibold uppercase text-white bg-gray-800 rounded-md">
+                                        <tr>
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-semibold text-center">Nombre</div>
+                                            </th>
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-semibold text-center">Descripción</div>
+                                            </th>
+                                            <th class="p-2 whitespace-nowrap">
+                                                <div class="font-semibold text-center">Acciones</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-sm divide-y divide-gray-100 bg-gray-600" *ngFor="let item of departamento">
+                                        <tr>
+                                            <td class="p-2 whitespace-nowrap">
+                                                <div class="text-center text-white">{{item.nombre}}</div>
+                                            </td>
+                                            <td class="p-2 whitespace-nowrap">
+                                                <div class="text-center font-medium text-white">{{item.descripcion}}</div>
+                                            </td>
+                                            <td class="p-2 flex flex-row justify-center items-center">
+                                                <button class="btn-eliminar" (click)="eliminarDepa(item.id)"><i class="fas fa-trash-alt"></i></button>
+                                                <section class=" flex justify-center items-center ">
+                                                    <button onclick="document.getElementById('myModal2').showModal()" id="btn" class="btn-editar" (click)="editarDepa(item)"><i class="fas fa-edit"></i></button>
+                                                </section>
+
+                                                <dialog id="myModal2" class="h-96 w-11/12 md:w-1/2 bg-white rounded-md ">
+
+                                                    <div class="flex flex-col w-full h-auto ">
+                                                        <!-- Header -->
+                                                        <div class="flex w-full h-auto justify-center items-center fondo rounded-md">
+                                                            <div class="flex w-10/12 h-auto py-3 justify-center items-center text-2xl font-bold text-white">
+                                                                <i class="fas fa-edit"></i> Editar departamento
+                                                            </div>
+                                                            <div onclick="document.getElementById('myModal2').close();" class="flex w-1/12 h-auto justify-center cursor-pointer">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                                            </div>
+                                                            <!--Header End-->
+                                                        </div>
+                                                        <!-- Modal Content-->
+                                                        <div class="flex w-full h-auto  px-2 flex-col text-center text-gray-500">
+                                                            <div class="flex items-center justify-center mt-4">
+                                                                <input type="text" class="block w-1/2 p-2 border rounded-md border-indigo-300 focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-transparent " placeholder="Nombre del departamento" autofocus autocomplete required [(ngModel)]="elements.nombre"
+                                                                    required [ngModelOptions]="{standalone: true}">
+                                                            </div>
+                                                            <div class="flex items-center justify-center mt-4 ">
+                                                                <textarea id="Observaciones" class="block w-1/2 p-2 border rounded-md border-indigo-300 focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-transparent " placeholder="Descripción del departamento " [(ngModel)]="elements.descripcion" [ngModelOptions]="{standalone: true}"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="mt-4 flex items-center justify-center">
+                                                            <button class="btn-grad" (click)="actualizarDepa()">Guardar Cambios</button>
+                                                        </div>
+                                                        <!-- End of Modal Content-->
+
+
+
+                                                    </div>
+                                                </dialog>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-4 flex items-center justify-center">
-                        <button class="btn-grad" (click)="registrarDepa()">Guardar </button>
-                    </div>
-                    <!-- End of Modal Content-->
-                    
-                    
-                    
-                  </div>
-          </dialog>
-      </div>
-    </div>
-    <div class=" flex flex-col justify-center rounded-2xl ">
-        <!-- Table -->
-        <div class="w-full max-w-4xl mx-auto bg-white shadow-lg rounded-md border border-gray-200">
-            <header class="px-5 py-1 bg-gray-100 border-b border-gray-100">
-                <h2 class="font-semibold text-lg text-gray-800"><i class="fas fa-building"></i> Departamentos existentes</h2>
-            </header>
-            <div class="p-3">
-                <div class="overflow-x-auto">
-                    <table class="table-auto w-full ">
-                        <thead class="text-xs font-semibold uppercase text-white bg-gray-800 rounded-md">
-                            <tr>
-                                <th class="p-2 whitespace-nowrap">
-                                    <div class="font-semibold text-center">Nombre</div>
-                                </th>
-                                <th class="p-2 whitespace-nowrap">
-                                    <div class="font-semibold text-center">Descripción</div>
-                                </th>
-                                <th class="p-2 whitespace-nowrap">
-                                    <div class="font-semibold text-center">Acciones</div>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-sm divide-y divide-gray-100 bg-gray-600" *ngFor="let item of departamento">
-                            <tr>
-                                <td class="p-2 whitespace-nowrap">
-                                    <div class="text-center text-white">{{item.nombre}}</div>
-                                </td>
-                                <td class="p-2 whitespace-nowrap">
-                                    <div class="text-center font-medium text-white">{{item.descripcion}}</div>
-                                </td>
-                                <td class="p-2 flex flex-row justify-center items-center">
-                                    <button class="btn-eliminar" (click)="eliminarDepa(item.id)"><i class="fas fa-trash-alt"></i></button>
-                                    <section class=" flex justify-center items-center ">
-                                        <button onclick="document.getElementById('myModal2').showModal()" id="btn" class="btn-editar" (click)="editarDepa(item)"><i class="fas fa-edit"></i></button>
-                                      </section>
-                                      
-                                      <dialog id="myModal2" class="h-96 w-11/12 md:w-1/2 bg-white rounded-md ">
-                                              
-                                         <div class="flex flex-col w-full h-auto ">
-                                              <!-- Header -->
-                                              <div class="flex w-full h-auto justify-center items-center fondo rounded-md">
-                                                <div class="flex w-10/12 h-auto py-3 justify-center items-center text-2xl font-bold text-white">
-                                                    <i class="fas fa-edit"></i> Editar departamento
-                                                </div>
-                                                <div onclick="document.getElementById('myModal2').close();" class="flex w-1/12 h-auto justify-center cursor-pointer">
-                                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#cc0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                                                </div>
-                                                <!--Header End-->
-                                              </div>
-                                                <!-- Modal Content-->
-                                                 <div class="flex w-full h-auto  px-2 flex-col text-center text-gray-500">
-                                                    <div class="flex items-center justify-center mt-4">
-                                                        <input type="text" class="block w-1/2 p-2 border rounded-md border-indigo-300 focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-transparent " placeholder="Nombre del departamento"  autofocus autocomplete required [(ngModel)]="elements.nombre" required [ngModelOptions]="{standalone: true}">
-                                                    </div>
-                                                    <div class="flex items-center justify-center mt-4 ">
-                                                        <textarea  id="Observaciones" class="block w-1/2 p-2 border rounded-md border-indigo-300 focus:outline-none focus:ring-1 focus:ring-indigo-400 focus:border-transparent " placeholder="Descripción del departamento " [(ngModel)]="elements.descripcion" [ngModelOptions]="{standalone: true}"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-4 flex items-center justify-center">
-                                                    <button class="btn-grad" (click)="actualizarDepa()">Guardar Cambios</button>
-                                                </div>
-                                                <!-- End of Modal Content-->
-                                                
-                                                
-                                                
-                                              </div>
-                                      </dialog>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
+
         </div>
     </div>
-  </div>
+</div>

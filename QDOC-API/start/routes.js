@@ -19,9 +19,13 @@ const Route = use('Route')
 Route.on('/').render('welcome')
 
 // USUARIOS
+Route.get('/allUser', 'UsuarioController.allUser')
+Route.get('/getUserInfo', 'UsuarioController.getUserInfo').middleware(['auth'])
 Route.post('/registrarUsuario', 'UsuarioController.registrarUsuario')
 Route.post('/login', 'UsuarioController.login')
-Route.get('/getUserInfo', 'UsuarioController.getUserInfo').middleware(['auth'])
+Route.patch('/editarUsuario', 'UsuarioController.editarUsuario')
+Route.delete('/eliminarUsuario/:id', 'UsuarioController.eliminarUsuario')
+Route.delete('/removeAuth', 'UsuarioController.deleteAuth');
 
 // DEPARTAMENTO
 Route.post('/registrarDepa', 'DepartamentoController.registrarDepa')

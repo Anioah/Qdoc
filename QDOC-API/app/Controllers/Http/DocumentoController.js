@@ -8,18 +8,19 @@ class DocumentoController {
 
     async getDocument({ response }) {
         try {
+            //const documentos = await Documento.all();
             const documentos = await Database.select('documentos.*', 'users.nombre as usuarioname', 'tipo_documentos.descripcion as tipname',
-            'departamentos.nombre as areaP')
-            .from('documentos')
-            .innerJoin('users', (query) => {
-                query.on('users.id', 'documentos.usuario')
-            })
-            .innerJoin('tipo_documentos', (query) => {
-                query.on('tipo_documentos.id', 'documentos.tipo_documento')
-            })
-            .innerJoin('departamentos', (query) => {
-                query.on('departamentos.id', 'documentos.area_perteneciente')
-            })
+                    'departamentos.nombre as areaP')
+                .from('documentos')
+                .innerJoin('users', (query) => {
+                    query.on('users.id', 'documentos.usuario')
+                })
+                .innerJoin('tipo_documentos', (query) => {
+                    query.on('tipo_documentos.id', 'documentos.tipo_documento')
+                })
+                .innerJoin('departamentos', (query) => {
+                    query.on('departamentos.id', 'documentos.area_perteneciente')
+                })
 
             return response.status(200).json(documentos);
         } catch (error) {
@@ -49,9 +50,10 @@ class DocumentoController {
         }
     }
 
-    async newDocument({ request, response }) {
+    async newDocument({ request, response, auth }) {
         try {
             const data = await request.all();
+            const user = await auth.getUser();
             const document = await new Documento();
 
             document.nombre = data.nombre;
@@ -64,8 +66,8 @@ class DocumentoController {
             document.fecha_revision = data.fecha_revision;
             document.fecha_edicion = data.fecha_edicion;
             document.vigencia = data.vigencia;
-            document.usuario = data.usuario;
-            document.area_perteneciente = data.area_perteneciente;
+            document.usuario = user.id;
+            document.area_perteneciente = user.departamento;
             document.tipo_documento = data.tipo_documento
 
             if (await document.save()) {

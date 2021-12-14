@@ -1,0 +1,78 @@
+<div class="content" fxFlex>
+    <div class="row">
+        <div class="col-md-3 col-sm-12">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-md-9 col-sm-12">
+            <div class="card shadow w-75 p-3 bg-light m-3">
+                <div class="row">
+                    <div class="col-sm-2 justify-center pt-2 pl-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-earmark-medical-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-3 2v.634l.549-.317a.5.5 0 1 1 .5.866L7 7l.549.317a.5.5 0 1 1-.5.866L6.5 7.866V8.5a.5.5 0 0 1-1 0v-.634l-.549.317a.5.5 0 1 1-.5-.866L5 7l-.549-.317a.5.5 0 0 1 .5-.866l.549.317V5.5a.5.5 0 1 1 1 0zm-2 4.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zm0 2h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1z" />
+                        </svg>
+                    </div>
+                    <div class="col-sm-10">
+                        <h2 class="card-title"> Dar de alta Registro de Documento</h2>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-floating w-50">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Ingrese el nombre" [(ngModel)]="documento.nombre">
+                            <label for="floatingInput">Nombre</label>
+                        </div>
+                        <div class="form-floating w-50">
+                            <select class="form-select" id="floatingSelect" aria-label="Tipo de documento" [(ngModel)]="documento.tipo_documento">
+                                <option selected>Selecione tipo de documento</option>
+                                <option  *ngFor="let type of typeOfDoc" [value]="type.id">{{type.descripcion}}</option>
+                                
+                            </select>
+                            <label for="floatingSelect">Tipo de Documento</label>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="form-floating w-25">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Ingrese el codigo" [(ngModel)]="documento.codigo">
+                            <label for="floatingInput">Codigo</label>
+                        </div>
+                        <div class="form-floating w-50">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Ingrese el Titulo" [(ngModel)]="documento.titulo">
+                            <label for="floatingInput">Titulo</label>
+                        </div>
+                        <div class="form-floating w-25">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Ingrese el No.revisión" [(ngModel)]="documento.numero_revision">
+                            <label for="floatingInput">No.Revisión</label>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="form-floating w-25">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="No. de páginas" [(ngModel)]="documento.total_pagina">
+                            <label for="floatingInput">No. pág</label>
+                        </div>
+                        <div class="form-floating w-25">
+                            <input type="date" class="form-control" id="floatingInput" placeholder="Fecha de revisión" [(ngModel)]="documento.fecha_revision">
+                            <label for="floatingInput">Fecha de revisión</label>
+                        </div>
+                        <div class="form-floating w-25">
+                            <input type="date" class="form-control" id="floatingInput" placeholder="Fecha de edición" [(ngModel)]="documento.fecha_edicion">
+                            <label for="floatingInput">Fecha de edición</label>
+                        </div>
+                        <div class="form-floating w-25">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="No. de versión" [(ngModel)]="documento.no_version">
+                            <label for="floatingInput">No. versión</label>
+                        </div>
+                    </div>
+                    <div class="row text-center justify-center" style="display:flex; align-items:center;">
+                        <div class="form-floating col-sm">
+                            <input type="date" class="form-control" id="floatingInput" placeholder="Ingrese la vigencias" [(ngModel)]="documento.vigencia">
+                            <label for="floatingInput">Vigencia</label>
+                        </div>
+                        <div class="col-sm justify-center">
+                            <Button class="btn-grad" (click)="newDocument()">Guardar</Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
