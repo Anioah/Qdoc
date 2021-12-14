@@ -10,6 +10,7 @@ describe('DepartamentosComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ DepartamentosComponent ]
     })
+    
     .compileComponents();
   });
 
