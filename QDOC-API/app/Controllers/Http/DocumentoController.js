@@ -2,15 +2,28 @@
 
 const Documento = use('App/Models/Documento');
 const TipoDocumento = use('App/Models/TipoDocumento');
+const Database = use('Database');
 
 class DocumentoController {
 
     async getDocument({ response }) {
         try {
-            const documentos = await Documento.all();
+            const documentos = await Database.select('documentos.*', 'users.nombre as usuarioname', 'tipo_documentos.descripcion as tipname',
+            'departamentos.nombre as areaP')
+            .from('documentos')
+            .innerJoin('users', (query) => {
+                query.on('users.id', 'documentos.usuario')
+            })
+            .innerJoin('tipo_documentos', (query) => {
+                query.on('tipo_documentos.id', 'documentos.tipo_documento')
+            })
+            .innerJoin('departamentos', (query) => {
+                query.on('departamentos.id', 'documentos.area_perteneciente')
+            })
 
             return response.status(200).json(documentos);
         } catch (error) {
+            console.log(error)
             return response.status(500).json({ message: "No se pudo realizar la petición correctamente" });
         }
     }

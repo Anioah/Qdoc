@@ -34,4 +34,12 @@ export class GeneralService {
   eliminadepa(id:number){
     return this.http.delete(conexion.url_http + `eliminarDepa/${id}`)
   }
+
+
+  /* Hsitorial */
+
+  // Traer todos los documentos
+  getDoc(){
+    return this.http.get(conexion.url_http + 'getDoc')
+  }
 }
