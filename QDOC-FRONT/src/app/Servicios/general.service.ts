@@ -50,4 +50,12 @@ export class GeneralService {
   eliminauser(id:number){
     return this.http.delete(conexion.url_http + `eliminarUsuario/${id}`)
   }
+
+  /* Hsitorial */
+
+  // Traer todos los documentos
+  getDoc(){
+    return this.http.get(conexion.url_http + 'getDoc')
+  }
+  
 }
