@@ -5,5 +5,6 @@ export interface User{
     password : string
     nombre:string
     apellidos:string
+    depa:string
     departamento:number
 }

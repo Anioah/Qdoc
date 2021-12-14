@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
     password: '',
     nombre: '',
     apellidos: '',
-    departamento: 0,
+    depa: '',
+    departamento:0
   }
 
   constructor(private service: AuthService, public router: Router) { }

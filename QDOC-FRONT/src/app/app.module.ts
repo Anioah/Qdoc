@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Componentes/login/login.component';
 import { DepartamentosComponent } from './Componentes/departamentos/departamentos.component';
+import { UsuariosComponent } from './Componentes/usuarios/usuarios.component';
+import { SidebarComponent } from './Componentes/sidebar/sidebar.component';
 import { FormulariosComponent } from './Componentes/formularios/formularios.component';
 import { HistorialComponent } from './Componentes/historial/historial.component';
 
@@ -15,6 +17,8 @@ import { HistorialComponent } from './Componentes/historial/historial.component'
     AppComponent,
     LoginComponent,
     DepartamentosComponent,
+    UsuariosComponent,
+    SidebarComponent
     FormulariosComponent,
     HistorialComponent
   ],

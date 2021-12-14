@@ -4,6 +4,7 @@ import { DepartamentosComponent } from './Componentes/departamentos/departamento
 import { FormulariosComponent } from './Componentes/formularios/formularios.component';
 import { HistorialComponent } from './Componentes/historial/historial.component';
 import { LoginComponent } from './Componentes/login/login.component';
+import { UsuariosComponent } from './Componentes/usuarios/usuarios.component';
 
 export const appRoutingProviders: any[] = [];
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'historial',
     component: HistorialComponent
+  },
+  {
+    path: 'usuario',
+    component:UsuariosComponent
   },
   {
     path: '**',
