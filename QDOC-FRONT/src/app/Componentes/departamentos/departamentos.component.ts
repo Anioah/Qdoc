@@ -109,7 +109,7 @@ export class DepartamentosComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
-          title:'Eliminido!',
+          title:'Eliminado!',
           text:'El departamento ha sido eliminado.',
           icon:'success',
           showConfirmButton: false,

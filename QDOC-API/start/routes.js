@@ -19,7 +19,6 @@ const Route = use('Route')
 Route.on('/').render('welcome')
 
 // USUARIOS
-
 Route.post('/registrarUsuario', 'UsuarioController.registrarUsuario')
 Route.post('/login', 'UsuarioController.login')
 Route.get('/getUserInfo', 'UsuarioController.getUserInfo').middleware(['auth'])
@@ -29,3 +28,10 @@ Route.post('/registrarDepa', 'DepartamentoController.registrarDepa')
 Route.get('/allDepa', 'DepartamentoController.allDepa')
 Route.patch('/editarDepa', 'DepartamentoController.editarDepa')
 Route.delete('/eliminarDepa/:id', 'DepartamentoController.eliminarDepa')
+
+// DOCUMENTOS
+Route.get('/getDoc', 'DocumentoController.getDocument');
+Route.get('/getTypeDoc', 'DocumentoController.getTypeOfDocument');
+Route.post('/especificDoc', 'DocumentoController.getEspecificDocument');
+Route.post('/newDoc', 'DocumentoController.newDocument');
+Route.post('/newTD', 'DocumentoController.newTypeDocument');

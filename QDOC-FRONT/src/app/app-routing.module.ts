@@ -1,17 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DepartamentosComponent } from './Componentes/departamentos/departamentos.component';
+import { FormulariosComponent } from './Componentes/formularios/formularios.component';
+import { HistorialComponent } from './Componentes/historial/historial.component';
 import { LoginComponent } from './Componentes/login/login.component';
 
-export const appRoutingProviders: any[]=[];
+export const appRoutingProviders: any[] = [];
 const routes: Routes = [
   {
     path: 'login',
-    component:LoginComponent
+    component: LoginComponent
   },
   {
     path: 'departamento',
-    component:DepartamentosComponent
+    component: DepartamentosComponent
+  },
+  {
+    path: 'formulario',
+    component: FormulariosComponent
+  },
+  {
+    path: 'historial',
+    component: HistorialComponent
   },
   {
     path: '**',
@@ -21,7 +31,7 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash : true})],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 
