@@ -1,1 +1,1 @@
-export const url_http = "http://127.0.0.1:3333/";
+export const url_http = "http://137.184.100.21:3333/";
